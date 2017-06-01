@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="d1"></div>
+<div class="c1"></div>
+<div class="target1"></div>
+<div class="target2"></div>
+<div class="target3"></div>
+</body>
+<script>
+    console.log($("#d1"));
+    var $d1 = $("#d1");
+    console.log($d1);
+
+    $d1
+        .css("background", "red")
+        //        .css("width",200);
+        .width(200)
+        .height("300px");
+
+    //    var chain = {
+    //        setHeight : function (height) {
+    //            this.height = height;
+    //            return this;
+    //        },
+    //        setWidth : function (width) {
+    //            this.width = width;
+    //            return this;
+    //        },
+    //        setBg : function (bg) {
+    //            this.bg = bg;
+    //            return this;
+    //        }
+    //
+    //    }
+
+
+    console.log($d1.width());
+
+
+    $d1.css({marginLeft: "50px"});
+    $d1.text("asdasddsa");
+    console.log($d1.text());
+
+    $(".c1").text("qeqweqwe");
+
+
+    $("div").css("color", function () {
+        if ($(this).text().includes("asd"))return "blue";
+        else return "yellow";
+    });
+
+    $("div").each(function () {
+
+        var attr = $(this).attr('class') ? $(this).attr('class') : $(this).attr('id');
+        console.log(attr);
+        $(this).attr("name", "val" + attr);
+
+    });
+
+    $d1.append("12312");
+
+    var $h3 = $("<h3>hello</h3>");
+    $d1.append($h3);
+
+    var $h2 = $("<h2/>", {id: "xxx", class: 'yyy', text: 'oktenweb'});
+    $d1.append($h2);
+
+    $h2.appendTo($(".c1"));
+
+
+    $d1.click(function () {
+        console.log("dasda");
+    });
+    $d1.on("mouseover", function () {
+        console.log("qweqweqw");
+    });
+
+
+    var last = $("div")
+        .filter(":eq(4)")
+        .width(300)
+        .height(400)
+        .css("background", "green");
+    console.log(last);
+
+</script>
+</html>
